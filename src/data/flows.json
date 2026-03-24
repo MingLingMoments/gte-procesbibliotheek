@@ -1,0 +1,143 @@
+[
+  {
+    "id": "gte-intake",
+    "title": "Verkoopkansen uit GTE Intake",
+    "category": "Verkoop",
+    "dept": "tech",
+    "owner": "Technisch AM",
+    "updated": "2026-03-01",
+    "tags": ["Technisch AM", "Commercieel AM"],
+    "lanes": [
+      {
+        "role": "Technisch AM",
+        "color": "blue",
+        "steps": [
+          { "type": "decision", "label": "Beoordeling rapport" },
+          { "type": "decision", "label": "Verkoopkans beoordelen" },
+          { "type": "decision", "label": "Standaard calculatie maken" }
+        ]
+      },
+      {
+        "role": "Commercieel AM",
+        "color": "pink",
+        "steps": [
+          { "type": "action", "label": "Offerte opvolgen + getekende offerte ophalen & archiveren" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "storing",
+    "title": "Storing — service & monitoring",
+    "category": "Service",
+    "dept": "service",
+    "owner": "Service & Monitoring",
+    "updated": "2026-03-01",
+    "tags": ["Service & Monitoring", "Service Coordinator"],
+    "lanes": [
+      {
+        "role": "Service & Monitoring",
+        "color": "teal",
+        "steps": [
+          { "type": "decision", "label": "Actie benodigd?" },
+          { "type": "decision", "label": "Kleine calculatie / standaard?" }
+        ]
+      },
+      {
+        "role": "Service Coordinator",
+        "color": "amber",
+        "steps": [
+          { "type": "action", "label": "Service inplannen en coördineren" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "service-extern",
+    "title": "Service verzoek extern",
+    "category": "Service",
+    "dept": "service",
+    "owner": "Service Coordinator",
+    "updated": "2026-03-01",
+    "tags": ["Service Coordinator", "Calc. Special", "Directie", "Commercieel AM"],
+    "lanes": [
+      {
+        "role": "Service Coordinator",
+        "color": "teal",
+        "steps": [
+          { "type": "start", "label": "Service verzoek (extern)" },
+          { "type": "decision", "label": "Beoordeling" },
+          { "type": "decision", "label": "Verkoopkans beoordelen" },
+          { "type": "decision", "label": "Standaard calculatie" },
+          { "type": "action", "label": "Akkoord intern (bedrag < €10.000)" }
+        ]
+      },
+      {
+        "role": "Calculator Special",
+        "color": "blue",
+        "steps": [
+          { "type": "decision", "label": "Special calculatie" },
+          { "type": "action", "label": "Akkoord Calculator Special (bedrag > €10.000)" }
+        ]
+      },
+      {
+        "role": "Directie",
+        "color": "pink",
+        "steps": [
+          { "type": "action", "label": "Akkoord Calc. Special + Directie (bedrag > €50.000)" }
+        ]
+      },
+      {
+        "role": "Commercieel AM",
+        "color": "purple",
+        "steps": [
+          { "type": "action", "label": "Offerte opvolgen + getekende offerte ophalen & archiveren" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "groot-onderhoud",
+    "title": "Groot onderhoud",
+    "category": "Project",
+    "dept": "project",
+    "owner": "PRJ Standaard",
+    "updated": "2026-03-01",
+    "tags": ["PRJ Standaard", "Calc. Special", "Directie", "Projectmanager"],
+    "lanes": [
+      {
+        "role": "PRJ Standaard",
+        "color": "amber",
+        "steps": [
+          { "type": "start", "label": "Groot onderhoud" },
+          { "type": "decision", "label": "Beoordeling" },
+          { "type": "decision", "label": "Verkoopkans beoordelen" },
+          { "type": "decision", "label": "Standaard calculatie" },
+          { "type": "action", "label": "Akkoord intern (bedrag < €25.000)" }
+        ]
+      },
+      {
+        "role": "Calculator Special",
+        "color": "blue",
+        "steps": [
+          { "type": "decision", "label": "Special calculatie" },
+          { "type": "action", "label": "Akkoord PRJ Standaard + Calculator (bedrag > €10.000)" }
+        ]
+      },
+      {
+        "role": "Directie",
+        "color": "pink",
+        "steps": [
+          { "type": "action", "label": "Akkoord PRJ Standaard + Calculator + Directie (bedrag > €50.000)" }
+        ]
+      },
+      {
+        "role": "Projectmanager",
+        "color": "amber",
+        "steps": [
+          { "type": "action", "label": "Project inplannen en coördineren" }
+        ]
+      }
+    ]
+  }
+]
