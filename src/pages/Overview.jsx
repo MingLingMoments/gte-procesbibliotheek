@@ -28,8 +28,8 @@ export default function Overview() {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-1">Procesoverzicht</h2>
-        <p className="text-gray-500 text-sm">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">Procesoverzicht</h2>
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
           Doorzoek en bekijk alle procesflows van Green Teams Europe
         </p>
       </div>
@@ -41,7 +41,7 @@ export default function Overview() {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar */}
         <aside className="lg:w-56 shrink-0">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 sticky top-8">
+          <div className="bg-white dark:bg-[#2D2D2D] rounded-xl border border-gray-200 dark:border-gray-700 p-4 sticky top-8">
             <FilterPanel active={dept} onChange={setDept} />
           </div>
         </aside>
@@ -49,8 +49,8 @@ export default function Overview() {
         {/* Grid */}
         <section className="flex-1">
           {filtered.length === 0 ? (
-            <div className="text-center py-16 text-gray-400">
-              <svg className="w-12 h-12 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
+              <svg className="w-12 h-12 mx-auto mb-3 text-gray-300 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <p className="font-medium">Geen processen gevonden</p>

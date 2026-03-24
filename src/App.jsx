@@ -5,7 +5,7 @@ import FlowDetail from './pages/FlowDetail'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#1a1a1a] transition-colors">
       <Header />
       <Routes>
         <Route path="/" element={<Overview />} />

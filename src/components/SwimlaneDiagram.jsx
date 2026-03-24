@@ -1,3 +1,5 @@
+import { useTheme } from '../context/ThemeContext'
+
 const LANE_HEIGHT = 100
 const STEP_WIDTH = 180
 const STEP_HEIGHT = 52
@@ -13,6 +15,14 @@ const colorMap = {
   teal: { bg: '#CCFBF1', border: '#14B8A6', lane: '#F0FDFA', text: '#115E59' },
   amber: { bg: '#FEF3C7', border: '#F59E0B', lane: '#FFFBEB', text: '#92400E' },
   purple: { bg: '#EDE9FE', border: '#8B5CF6', lane: '#F5F3FF', text: '#5B21B6' },
+}
+
+const darkColorMap = {
+  blue: { bg: '#1E3A5F', border: '#3B82F6', lane: '#172237', text: '#93C5FD' },
+  pink: { bg: '#4A1942', border: '#EC4899', lane: '#2D1228', text: '#F9A8D4' },
+  teal: { bg: '#134E4A', border: '#14B8A6', lane: '#0F2D2B', text: '#5EEAD4' },
+  amber: { bg: '#4A3728', border: '#F59E0B', lane: '#2D2218', text: '#FCD34D' },
+  purple: { bg: '#3B2670', border: '#8B5CF6', lane: '#251748', text: '#C4B5FD' },
 }
 
 function wrapText(text, maxChars) {
@@ -32,12 +42,16 @@ function wrapText(text, maxChars) {
 }
 
 export default function SwimlaneDiagram({ lanes }) {
+  const { dark } = useTheme()
+  const palette = dark ? darkColorMap : colorMap
   const maxSteps = Math.max(...lanes.map((l) => l.steps.length))
   const svgWidth = LANE_LABEL_WIDTH + PADDING * 2 + maxSteps * (STEP_WIDTH + STEP_GAP)
   const svgHeight = lanes.length * LANE_HEIGHT + PADDING * 2
+  const arrowColor = dark ? '#64748B' : '#94A3B8'
+  const laneStroke = dark ? '#374151' : '#E2E8F0'
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+    <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1f1f1f]">
       <svg
         viewBox={`0 0 ${svgWidth} ${svgHeight}`}
         width={svgWidth}
@@ -56,13 +70,13 @@ export default function SwimlaneDiagram({ lanes }) {
           >
             <polygon
               points={`0 0, ${ARROW_HEAD} ${ARROW_HEAD / 2}, 0 ${ARROW_HEAD}`}
-              fill="#94A3B8"
+              fill={arrowColor}
             />
           </marker>
         </defs>
 
         {lanes.map((lane, laneIdx) => {
-          const colors = colorMap[lane.color] || colorMap.blue
+          const colors = palette[lane.color] || palette.blue
           const y = PADDING + laneIdx * LANE_HEIGHT
 
           return (
@@ -74,7 +88,7 @@ export default function SwimlaneDiagram({ lanes }) {
                 width={svgWidth}
                 height={LANE_HEIGHT}
                 fill={colors.lane}
-                stroke="#E2E8F0"
+                stroke={laneStroke}
                 strokeWidth={1}
               />
               {/* Lane label */}
@@ -118,7 +132,7 @@ export default function SwimlaneDiagram({ lanes }) {
                         y1={cy}
                         x2={cx - STEP_WIDTH / 2 + 4}
                         y2={cy}
-                        stroke="#94A3B8"
+                        stroke={arrowColor}
                         strokeWidth={1.5}
                         markerEnd="url(#arrowhead)"
                       />
