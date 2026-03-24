@@ -65,15 +65,17 @@ export default function FlowDetail() {
         <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Legenda</h3>
         <div className="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-400">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-5 rounded-full bg-[#008948]" />
+            <div className="w-8 h-5 rounded-full bg-gray-500 dark:bg-[#444441]" />
             <span>Startpunt</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-5 rounded border-2 border-dashed border-[#5BB446]" />
-            <span>Beslissing</span>
+            <svg width="32" height="20" viewBox="0 0 32 20">
+              <polygon points="16,0 32,10 16,20 0,10" fill="none" stroke="currentColor" strokeWidth="1" />
+            </svg>
+            <span>Beslispunt</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-5 rounded-md border-2 border-[#5BB446]" />
+            <div className="w-8 h-5 rounded-md border border-[#5BB446]" />
             <span>Actie</span>
           </div>
         </div>
